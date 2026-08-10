@@ -235,27 +235,31 @@
 </head>
 <body>
 
-    <!-- 지점 선택 영역 -->
-    <h1>원하는 지점을 선택하세요</h1>
-    <div class="subtitle">가까운 원타임짐 지점을 선택하면 해당 지점 소개로 바로 이동합니다.</div>
+<!-- 지점 선택 영역 -->
+<h1>원하는 지점을 선택하세요</h1>
+<div class="subtitle">가까운 원타임짐 지점을 선택하면 해당 지점 시설 정보로 바로 이동합니다.</div>
 
-    <div class="container">
-        <!-- 1호점 -->
-        <div class="card">
-            <span class="badge">1ST BRANCH</span>
-            <h3>원타임짐 탑동점</h3>
-            <p>탑동초등학교, 구운중학교 근처</p>
-            <a href="#" class="link-text">시설 보기 →</a>
-        </div>
-
-        <!-- 2호점 -->
-        <div class="card">
-            <span class="badge">2ND BRANCH</span>
-            <h3>원타임짐 오산점</h3>
-            <p>N마트 맞은 편</p>
-            <a href="#" class="link-text">시설 보기 →</a>
-        </div>
+<div class="container">
+    <!-- 1호점 -->
+    <div class="card">
+        <span class="badge">1ST BRANCH</span>
+        <h3>원타임짐 탑동점</h3>
+        <p>탑동초등학교, 구운중학교 근처</p>
+        <a href="https://map.naver.com/p/search/%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90/place/1087840575?placePath=%2Fhome%3Fbk_query%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202608101539%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90&entry=pll&from=nx&fromNxList=true&searchType=place"
+           target="_blank"
+           class="link-text">시설 보기 →</a>
     </div>
+
+    <!-- 2호점 -->
+    <div class="card">
+        <span class="badge">2ND BRANCH</span>
+        <h3>원타임짐 오산점</h3>
+        <p>N마트 맞은 편</p>
+        <a href="https://map.naver.com/p/search/%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90/place/1237159226?placePath=%2Fhome%3Fbk_query%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202608101540%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90&entry=pll&from=nx&fromNxList=true&searchType=place"
+           target="_blank"
+           class="link-text">시설 보기 →</a>
+    </div>
+</div>
 
     <!-- 원타임짐 탑동점 집중 홍보 섹션 -->
     <div class="tapdong-hero">
@@ -361,10 +365,34 @@
     </div>
 
     <!-- 하단 문의 버튼 영역 -->
-    <div class="buttons">
-        <a href="https://map.naver.com/p/search/%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90/place/1087840575?c=15.00,0,0,0,dh&placePath=%2Fticket%3FbookingRedirectUrl%3Dhttps%3A%2F%2Fm.booking.naver.com%2Fbooking%2F5%2Fbizes%2F680532%3Ftheme%3Dplace%26service-target%3Dmap-pc%26entry%3Dpll%26lang%3Dko%26entry%3Dpll%26fromPanelNum%3D2%26timestamp%3D202608101424%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90" class="btn btn-reserve">예약하기</a>
-        <a href="tel:031-278-0070" class="btn btn-call">전화하기</a>
+ <!-- 지점별 예약 및 문의 버튼 -->
+<div class="buttons">
+
+    <!-- 탑동점 -->
+    <div class="branch-buttons">
+        <h3>원타임짐 탑동점</h3>
+
+        <a href="https://map.naver.com/p/search/%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90/place/1087840575?c=15.00,0,0,0,dh&placePath=%2Fticket%3FbookingRedirectUrl%3Dhttps%3A%2F%2Fm.booking.naver.com%2Fbooking%2F5%2Fbizes%2F680532%3Ftheme%3Dplace%26service-target%3Dmap-pc%26entry%3Dpll%26lang%3Dko%26entry%3Dpll%26fromPanelNum%3D2%26timestamp%3D202608101424%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90"
+           target="_blank"
+           class="btn btn-reserve">예약하기</a>
+
+        <a href="tel:031-278-0070"
+           class="btn btn-call">문의하기</a>
     </div>
+
+    <!-- 오산점 -->
+    <div class="branch-buttons">
+        <h3>원타임짐 오산점</h3>
+
+        <a href="오산점_예약링크"
+           target="_blank"
+           class="btn btn-reserve">예약하기</a>
+
+        <a href="tel:0507-1322-4129"
+           class="btn btn-call">문의하기</a>
+    </div>
+
+</div>
 
 </body>
 </html>
