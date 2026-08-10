@@ -5,21 +5,28 @@
     <title>원타임짐</title>
     <style>
         body {
-            background-color: #fcfbfa;
+            background-color: #111111; /* 블랙에 가까운 배경 */
             font-family: 'Apple SD Gothic Neo', sans-serif;
             text-align: center;
             margin: 0;
             padding: 50px 20px;
-            color: #222;
+            color: #ffffff; /* 기본 글씨 화이트 */
         }
-        h1 {
+        h1, h2 {
             font-size: 36px;
             margin-bottom: 10px;
+            color: #ffffff; /* 강조 글씨 화이트 */
+            font-weight: 800;
+        }
+        h2 {
+            font-size: 32px;
+            margin-top: 80px;
         }
         .subtitle {
-            color: #666;
+            color: #aaaaaa; /* 서브 텍스트는 은은한 회색 */
             margin-bottom: 40px;
             font-size: 15px;
+            line-height: 1.5;
         }
         .container {
             display: flex;
@@ -30,90 +37,171 @@
             margin: 0 auto 40px auto;
         }
         .card {
-            background: #fff;
+            background: #1c1c1c; /* 어두운 카드 배경 */
             border-radius: 16px;
             padding: 30px;
             width: 280px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             text-align: left;
             position: relative;
-            border: 1px solid #eee;
+            border: 1px solid #333333;
             transition: transform 0.2s;
         }
         .card:hover {
             transform: translateY(-5px);
-        }
-        .card.dark {
-            background: #11221b;
-            color: #fff;
-            border: none;
+            border-color: #e63946; /* 마우스 올렸을 때 레드빛 테두리 */
         }
         .badge {
             font-size: 11px;
             font-weight: bold;
-            color: #8c734b;
+            color: #e63946; /* 다홍빛 뱃지 */
             margin-bottom: 15px;
             display: block;
-        }
-        .card.dark .badge {
-            color: #d4af37;
         }
         .card h3 {
             font-size: 22px;
             margin: 0 0 10px 0;
+            color: #ffffff;
         }
         .card p {
             font-size: 13px;
-            color: #666;
+            color: #bbbbbb;
             line-height: 1.5;
             margin-bottom: 30px;
-        }
-        .card.dark p {
-            color: #ccc;
         }
         .link-text {
             font-size: 13px;
             font-weight: bold;
-            color: #222;
+            color: #ffffff;
             text-decoration: none;
             display: block;
             text-align: right;
         }
-        .card.dark .link-text {
-            color: #fff;
+
+        /* 트레이너 섹션 스타일 */
+        .trainer-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 1050px;
+            margin: 0 auto 50px auto;
         }
+        .trainer-card {
+            background: #1c1c1c;
+            border-radius: 16px;
+            width: 225px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            text-align: left;
+            overflow: hidden;
+            border: 1px solid #333333;
+            transition: transform 0.2s;
+        }
+        .trainer-card:hover {
+            transform: translateY(-5px);
+            border-color: #e63946;
+        }
+        .trainer-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: #222;
+        }
+        .trainer-info {
+            padding: 20px;
+        }
+        .trainer-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 6px 0;
+            color: #ffffff;
+        }
+        .trainer-tags {
+            font-size: 11px;
+            font-weight: bold;
+            color: #e63946;
+            margin-bottom: 12px;
+        }
+        .trainer-desc {
+            font-size: 12px;
+            color: #bbbbbb;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* 오시는 길 섹션 스타일 */
+        .location-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+        }
+        .location-card {
+            background: #1c1c1c;
+            border-radius: 16px;
+            padding: 30px;
+            width: 420px;
+            text-align: left;
+            border: 1px solid #333333;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .location-card h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .location-info {
+            font-size: 13px;
+            color: #bbbbbb;
+            line-height: 1.8;
+            margin: 0;
+        }
+        .location-info strong {
+            color: #ffffff;
+        }
+
+        /* 하단 버튼 스타일 */
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
+            gap: 12px;
+            margin-top: 40px;
         }
         .btn {
-            padding: 12px 25px;
+            padding: 14px 28px;
             border-radius: 8px;
             font-weight: bold;
             font-size: 14px;
             text-decoration: none;
             border: none;
             cursor: pointer;
+            transition: opacity 0.2s;
         }
-        .btn-reserve { background-color: #d4af37; color: #fff; }
-        .btn-kakao { background-color: #ffe812; color: #222; }
-        .btn-call { background-color: #111; color: #fff; }
+        .btn:hover {
+            opacity: 0.85;
+        }
+        .btn-reserve { background-color: #e63946; color: #fff; }
+        .btn-kakao { background-color: #d90429; color: #fff; }
+        .btn-call { background-color: #2b2b2b; color: #fff; border: 1px solid #444; }
     </style>
 </head>
 <body>
 
+    <!-- 지점 선택 영역 -->
     <h1>원하는 지점을 선택하세요</h1>
     <div class="subtitle">가까운 원타임짐 지점을 선택하면 해당 지점 소개로 바로 이동합니다.</div>
 
-    <!-- 지점 카드 영역 -->
     <div class="container">
         <!-- 1호점 -->
         <div class="card">
             <span class="badge">1ST BRANCH</span>
             <h3>원타임짐 탑동점</h3>
-            <p>탑동초등학교, 구운중학교 근처 </p>
+            <p>탑동초등학교, 구운중학교 근처</p>
             <a href="#" class="link-text">시설 보기 →</a>
         </div>
 
@@ -121,10 +209,84 @@
         <div class="card">
             <span class="badge">2ND BRANCH</span>
             <h3>원타임짐 오산점</h3>
-            <p>N마트 맞은 편 </p>
+            <p>N마트 맞은 편</p>
             <a href="#" class="link-text">시설 보기 →</a>
         </div>
+    </div>
 
+    <!-- 트레이너 소개 영역 (4명) -->
+    <h2>전문성과 진심을 갖춘 트레이너</h2>
+    <div class="subtitle">
+        운동 경험이 없어도 괜찮습니다.<br>
+        회원님의 몸에 맞는 시작을 함께 설계합니다.
+    </div>
+
+    <div class="trainer-container">
+        <!-- 1번 트레이너 -->
+        <div class="trainer-card">
+            <img src="C:\Users\dlwjd\OneDrive\바탕 화면\KakaoTalk_20260806_161406710.jpg" alt="박기봉 대표" class="trainer-img">
+            <div class="trainer-info">
+                <div class="trainer-name">박기봉 대표</div>
+                <div class="trainer-tags">다이어트 · 체형교정</div>
+                <p class="trainer-desc">당신의 도전을 응원하며 최선을 다하겠습니다.</p>
+            </div>
+        </div>
+
+        <!-- 2번 트레이너 -->
+        <div class="trainer-card">
+            <img src="C:\Users\dlwjd\OneDrive\바탕 화면\KakaoTalk_20260806_161406710_02.jpg" alt="김남희 팀장" class="trainer-img">
+            <div class="trainer-info">
+                <div class="trainer-name">김남희 팀장</div>
+                <div class="trainer-tags">체형교정 · 통증개선</div>
+                <p class="trainer-desc">물리치료사 출신의 전문적인 수업입니다.</p>
+            </div>
+        </div>
+
+        <!-- 3번 트레이너 -->
+        <div class="trainer-card">
+            <img src="C:\Users\dlwjd\OneDrive\바탕 화면\KakaoTalk_20260806_161406710_01.jpg" alt="김현 트레이너" class="trainer-img">
+            <div class="trainer-info">
+                <div class="trainer-name">이슬 트레이너</div>
+                <div class="trainer-tags">다이어트 · 체형교정</div>
+                <p class="trainer-desc">지속할 수 있는 방식을 책임지겠습니다.</p>
+            </div>
+        </div>
+
+        <!-- 4번 트레이너 (추가됨) -->
+        <div class="trainer-card">
+            <img src="C:\Users\dlwjd\OneDrive\바탕 화면\KakaoTalk_20260806_161406710_03.jpg" alt="이지은 트레이너" class="trainer-img">
+            <div class="trainer-info">
+                <div class="trainer-name">이지은 트레이너</div>
+                <div class="trainer-tags">바디프로필 · 근력강화</div>
+                <p class="trainer-desc">건강하고 탄탄한 라인을 만들어드립니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 오시는 길 위치 정보 영역 (추가됨) -->
+    <h2>오시는 길</h2>
+    <div class="subtitle">원타임짐 각 지점의 위치와 안내 사항입니다.</div>
+
+    <div class="location-container">
+        <!-- 탑동점 위치 -->
+        <div class="location-card">
+            <h3>📍 원타임짐 탑동점</h3>
+            <p class="location-info">
+                <strong>주소:</strong> 수원시 권선구 탑동 (탑동초·구운중 인근)<br>
+                <strong>문의전화:</strong> 031-000-0000<br>
+                <strong>주차안내:</strong> 건물 내 무료 주차 가능
+            </p>
+        </div>
+
+        <!-- 오산점 위치 -->
+        <div class="location-card">
+            <h3>📍 원타임짐 오산점</h3>
+            <p class="location-info">
+                <strong>주소:</strong> 오산시 (N마트 맞은편 건물)<br>
+                <strong>문의전화:</strong> 031-000-0000<br>
+                <strong>주차안내:</strong> 지상 및 지하 주차장 완비
+            </p>
+        </div>
     </div>
 
     <!-- 하단 문의 버튼 영역 -->
