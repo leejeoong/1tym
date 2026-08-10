@@ -67,15 +67,69 @@
             font-size: 13px;
             color: #bbbbbb;
             line-height: 1.5;
-            margin-bottom: 30px;
+            margin: 0;
         }
-        .link-text {
-            font-size: 13px;
-            font-weight: bold;
+
+        /* 헬스장 장점 소개 섹션 (흑백 -> 컬러 호버 효과 적용) */
+        .facility-section {
+            max-width: 1000px;
+            margin: 80px auto;
+            text-align: left;
+        }
+        .facility-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        .facility-row.reverse {
+            flex-direction: row-reverse;
+        }
+        .facility-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .facility-text .en-title {
+            font-size: 24px;
+            font-weight: 900;
             color: #ffffff;
-            text-decoration: none;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        .facility-text h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .facility-text p {
+            font-size: 14px;
+            color: #aaaaaa;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .facility-img-box {
+            flex: 1.2;
+            min-width: 320px;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+        .facility-img-box img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            /* 기본 상태: 흑백(grayscale) 및 어둡게(brightness) */
+            filter: grayscale(100%) brightness(0.7);
+            transition: filter 0.4s ease, transform 0.4s ease;
             display: block;
-            text-align: right;
+        }
+        /* 마우스 호버 시 컬러로 부드럽게 전환 */
+        .facility-img-box:hover img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.03);
         }
 
         /* 탑동점 집중 홍보 배너/카드 스타일 */
@@ -212,11 +266,26 @@
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 40px;
             margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .branch-buttons {
+            background: #1c1c1c;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #333;
+            width: 280px;
+        }
+        .branch-buttons h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
         }
         .btn {
-            padding: 14px 28px;
+            display: block;
+            width: 100%;
+            padding: 12px 0;
             border-radius: 8px;
             font-weight: bold;
             font-size: 14px;
@@ -224,12 +293,17 @@
             border: none;
             cursor: pointer;
             transition: opacity 0.2s;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .btn:last-child {
+            margin-bottom: 0;
         }
         .btn:hover {
             opacity: 0.85;
         }
         .btn-reserve { background-color: #e63946; color: #fff; }
-        .btn-kakao { background-color: #d90429; color: #fff; }
         .btn-call { background-color: #2b2b2b; color: #fff; border: 1px solid #444; }
     </style>
 </head>
@@ -237,7 +311,7 @@
 
 <!-- 지점 선택 영역 -->
 <h1>원하는 지점을 선택하세요</h1>
-<div class="subtitle">가까운 원타임짐 지점을 선택하면 해당 지점 시설 정보로 바로 이동합니다.</div>
+<div class="subtitle">원타임짐의 프리미엄 지점을 만나보세요.</div>
 
 <div class="container">
     <!-- 1호점 -->
@@ -245,9 +319,6 @@
         <span class="badge">1ST BRANCH</span>
         <h3>원타임짐 탑동점</h3>
         <p>탑동초등학교, 구운중학교 근처</p>
-        <a href="https://map.naver.com/p/search/%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90/place/1087840575?placePath=%2Fhome%3Fbk_query%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202608101539%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90&entry=pll&from=nx&fromNxList=true&searchType=place"
-           target="_blank"
-           class="link-text">시설 보기 →</a>
     </div>
 
     <!-- 2호점 -->
@@ -255,127 +326,149 @@
         <span class="badge">2ND BRANCH</span>
         <h3>원타임짐 오산점</h3>
         <p>N마트 맞은 편</p>
-        <a href="https://map.naver.com/p/search/%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90/place/1237159226?placePath=%2Fhome%3Fbk_query%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202608101540%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90&entry=pll&from=nx&fromNxList=true&searchType=place"
-           target="_blank"
-           class="link-text">시설 보기 →</a>
     </div>
 </div>
 
-    <!-- 원타임짐 탑동점 집중 홍보 섹션 -->
-    <div class="tapdong-hero">
-        <span class="badge">PREMIUM 1ST BRANCH</span>
-        <h2><span class="highlight">원타임짐 탑동점</span>만의 특별한 프리미엄 공간</h2>
-        <div class="subtitle" style="text-align: left; margin-bottom: 20px;">
-            운동이 처음이신 분들도 편안하게 스며들 수 있는 곳, 지루하지 않게 건강한 습관을 만들어드립니다.
+<!-- 헬스장 장점 소개 섹션 (흑백 -> 컬러 호버 효과 적용) -->
+<div class="facility-section">
+    <!-- 첫 번째 장점 -->
+    <div class="facility-row">
+        <div class="facility-text">
+            <div class="en-title">THE UNMATCHED<br>LEVEL FACILITY.</div>
+            <h3>최고급 하이엔드 기구 브랜드</h3>
+            <p>Hammer Strength, Life Fitness, Technogym 등 엄선된 최고의 기구만 모아 제공합니다. 모든 기구는 철저한 점검과 전문적인 관리 속에서 최상의 운동 컨디션을 보장합니다.</p>
         </div>
-        
-        <div class="tapdong-grid">
-            <div class="tapdong-feature-box">
-                <h4>🏋️‍♂️ 150평 최대 규모 & 완벽한 구비</h4>
-                <p>넓고 쾌적한 공간에 엄선된 프리미엄 기구, 프리웨이트존, 그리고 여유로운 유산소존 완비!</p>
-            </div>
-            <div class="tapdong-feature-box">
-                <h4>🏙 탁 트인 통창뷰</h4>
-                <p>답답함 없이 시원하게 트인 통창뷰를 바라보며 기분 좋게 유산소와 웨이트를 즐기세요.</p>
-            </div>
-            <div class="tapdong-feature-box">
-                <h4>⏰ 365일 24시간 연중무휴</h4>
-                <p>안면인식 출입 시스템으로 언제든지 내가 원할 때 방문하여 운동 흐름이 끊기지 않습니다.</p>
-            </div>
-            <div class="tapdong-feature-box">
-                <h4>🤝 초보자 맞춤 소통 케어</h4>
-                <p>운동이 처음이셔도 걱정 마세요. 친절한 소통과 눈높이 지도러 편안하게 센터에 적응하고 운동 습관을 길러드립니다.</p>
-            </div>
+        <div class="facility-img-box">
+            <!-- 이미지 경로에 실제 시설 사진 파일명을 입력하세요 -->
+            <img src="facility1.jpg" alt="최고급 기구 시설">
         </div>
     </div>
 
-    <!-- 트레이너 소개 영역 (4명) -->
-    <h2>전문성과 진심을 갖춘 트레이너</h2>
-    <div class="subtitle">
-        운동 경험이 없어도 괜찮습니다.<br>
-        회원님의 몸에 맞는 시작을 함께 설계합니다.
-    </div>
-
-    <div class="trainer-container">
-        <!-- 1번 트레이너 -->
-        <div class="trainer-card">
-            <img src="1tym11.jpg" alt="박현진 대표" class="trainer-img">
-            <div class="trainer-info">
-                <div class="trainer-name">박현진 대표</div>
-                <div class="trainer-tags">다이어트 · 체형교정</div>
-                <p class="trainer-desc">당신의 도전을 응원하며 최선을 다하겠습니다.</p>
-            </div>
+    <!-- 두 번째 장점 (지그재그 배치) -->
+    <div class="facility-row reverse">
+        <div class="facility-text">
+            <div class="en-title">OPTIMIZED<br>WORKING SPACE.</div>
+            <h3>회원의 루틴을 고려한 넓은 동선</h3>
+            <p>여유로운 프리웨이트존과 쾌적한 유산소존 구성으로, 바쁜 시간대에도 대기 없이 편안하게 운동에만 집중할 수 있도록 최적화된 공간을 선사합니다.</p>
         </div>
-
-        <!-- 2번 트레이너 -->
-        <div class="trainer-card">
-            <img src="22.jpg" alt="이재민 팀장" class="trainer-img">
-            <div class="trainer-info">
-                <div class="trainer-name">이재민 팀장</div>
-                <div class="trainer-tags">체형교정 · 체력증진</div>
-                <p class="trainer-desc">쉽게 지치고 체력이 부족하다면, 기초체력부터 탄탄하게</p>
-            </div>
-        </div>
-
-        <!-- 3번 트레이너 -->
-        <div class="trainer-card">
-            <img src="33.jpg" alt="이슬 트레이너" class="trainer-img">
-            <div class="trainer-info">
-                <div class="trainer-name">이슬 트레이너</div>
-                <div class="trainer-tags">다이어트 · 체형교정</div>
-                <p class="trainer-desc">지속할 수 있는 방식을 책임지겠습니다.</p>
-            </div>
-        </div>
-
-        <!-- 4번 트레이너 -->
-        <div class="trainer-card">
-            <img src="44.jpg" alt="이승민 트레이너" class="trainer-img">
-            <div class="trainer-info">
-                <div class="trainer-name">이승민 트레이너</div>
-                <div class="trainer-tags">체형교정 · 근력강화</div>
-                <p class="trainer-desc">체력은 타고나는 게 아니라 만들어가는 것! 지금부터 시작하세요</p>
-            </div>
+        <div class="facility-img-box">
+            <!-- 이미지 경로에 실제 시설 사진 파일명을 입력하세요 -->
+            <img src="facility2.jpg" alt="넓은 운동 공간">
         </div>
     </div>
+</div>
 
-    <!-- 오시는 길 위치 정보 영역 -->
-    <h2>오시는 길</h2>
-    <div class="subtitle">원타임짐 각 지점의 위치와 안내 사항입니다.</div>
-
-    <div class="location-container">
-        <!-- 탑동점 위치 -->
-        <div class="location-card">
-            <h3>📍 원타임짐 탑동점</h3>
-            <p class="location-info">
-                <strong>주소 </strong> 수원시 권선구 탑동 (탑동초·구운중 인근)<br>
-                <strong>문의전화 </strong> 031-278-0070<br>
-                <strong>주차안내 </strong> 건물 내 무료 주차 가능
-            </p>
+<!-- 원타임짐 탑동점 집중 홍보 섹션 -->
+<div class="tapdong-hero">
+    <span class="badge">PREMIUM 1ST BRANCH</span>
+    <h2><span class="highlight">원타임짐 탑동점</span>만의 특별한 프리미엄 공간</h2>
+    <div class="subtitle" style="text-align: left; margin-bottom: 20px;">
+        운동이 처음이신 분들도 편안하게 스며들 수 있는 곳, 지루하지 않게 건강한 습관을 만들어드립니다.
+    </div>
+    
+    <div class="tapdong-grid">
+        <div class="tapdong-feature-box">
+            <h4>🏋️‍♂️ 150평 최대 규모 & 완벽한 구비</h4>
+            <p>넓고 쾌적한 공간에 엄선된 프리미엄 기구, 프리웨이트존, 그리고 여유로운 유산소존 완비!</p>
         </div>
+        <div class="tapdong-feature-box">
+            <h4>🏙 탁 트인 통창뷰</h4>
+            <p>답답함 없이 시원하게 트인 통창뷰를 바라보며 기분 좋게 유산소와 웨이트를 즐기세요.</p>
+        </div>
+        <div class="tapdong-feature-box">
+            <h4>⏰ 365일 24시간 연중무휴</h4>
+            <p>안면인식 출입 시스템으로 언제든지 내가 원할 때 방문하여 운동 흐름이 끊기지 않습니다.</p>
+        </div>
+        <div class="tapdong-feature-box">
+            <h4>🤝 초보자 맞춤 소통 케어</h4>
+            <p>운동이 처음이셔도 걱정 마세요. 친절한 소통과 눈높이 지도러 편안하게 센터에 적응하고 운동 습관을 길러드립니다.</p>
+        </div>
+    </div>
+</div>
 
-        <!-- 오산점 위치 -->
-        <div class="location-card">
-            <h3>📍 원타임짐 오산점</h3>
-            <p class="location-info">
-                <strong>주소 </strong> 오산시 (N마트 맞은편 건물)<br>
-                <strong>문의전화 </strong> 0507-1322-4129<br>
-                <strong>주차안내 </strong> 지상 및 지하 주차장 완비
-            </p>
+<!-- 트레이너 소개 영역 (4명) -->
+<h2>전문성과 진심을 갖춘 트레이너</h2>
+<div class="subtitle">
+    운동 경험이 없어도 괜찮습니다.<br>
+    회원님의 몸에 맞는 시작을 함께 설계합니다.
+</div>
+
+<div class="trainer-container">
+    <!-- 1번 트레이너 -->
+    <div class="trainer-card">
+        <img src="1tym11.jpg" alt="박현진 대표" class="trainer-img">
+        <div class="trainer-info">
+            <div class="trainer-name">박현진 대표</div>
+            <div class="trainer-tags">다이어트 · 체형교정</div>
+            <p class="trainer-desc">당신의 도전을 응원하며 최선을 다하겠습니다.</p>
         </div>
     </div>
 
-    <!-- 하단 문의 버튼 영역 -->
- <!-- 지점별 예약 및 문의 버튼 -->
+    <!-- 2번 트레이너 -->
+    <div class="trainer-card">
+        <img src="22.jpg" alt="이재민 팀장" class="trainer-img">
+        <div class="trainer-info">
+            <div class="trainer-name">이재민 팀장</div>
+            <div class="trainer-tags">체형교정 · 체력증진</div>
+            <p class="trainer-desc">쉽게 지치고 체력이 부족하다면, 기초체력부터 탄탄하게</p>
+        </div>
+    </div>
+
+    <!-- 3번 트레이너 -->
+    <div class="trainer-card">
+        <img src="33.jpg" alt="이슬 트레이너" class="trainer-img">
+        <div class="trainer-info">
+            <div class="trainer-name">이슬 트레이너</div>
+            <div class="trainer-tags">다이어트 · 체형교정</div>
+            <p class="trainer-desc">지속할 수 있는 방식을 책임지겠습니다.</p>
+        </div>
+    </div>
+
+    <!-- 4번 트레이너 -->
+    <div class="trainer-card">
+        <img src="44.jpg" alt="이승민 트레이너" class="trainer-img">
+        <div class="trainer-info">
+            <div class="trainer-name">이승민 트레이너</div>
+            <div class="trainer-tags">체형교정 · 근력강화</div>
+            <p class="trainer-desc">체력은 타고나는 게 아니라 만들어가는 것! 지금부터 시작하세요</p>
+        </div>
+    </div>
+</div>
+
+<!-- 오시는 길 위치 정보 영역 -->
+<h2>오시는 길</h2>
+<div class="subtitle">원타임짐 각 지점의 위치와 안내 사항입니다.</div>
+
+<div class="location-container">
+    <!-- 탑동점 위치 -->
+    <div class="location-card">
+        <h3>📍 원타임짐 탑동점</h3>
+        <p class="location-info">
+            <strong>주소 </strong> 수원시 권선구 탑동 (탑동초·구운중 인근)<br>
+            <strong>문의전화 </strong> 031-278-0070<br>
+            <strong>주차안내 </strong> 건물 내 무료 주차 가능
+        </p>
+    </div>
+
+    <!-- 오산점 위치 -->
+    <div class="location-card">
+        <h3>📍 원타임짐 오산점</h3>
+        <p class="location-info">
+            <strong>주소 </strong> 오산시 (N마트 맞은편 건물)<br>
+            <strong>문의전화 </strong> 0507-1322-4129<br>
+            <strong>주차안내 </strong> 지상 및 지하 주차장 완비
+        </p>
+    </div>
+</div>
+
+<!-- 하단 예약 및 문의 버튼 영역 -->
 <div class="buttons">
-
     <!-- 탑동점 -->
     <div class="branch-buttons">
         <h3>원타임짐 탑동점</h3>
-
         <a href="https://map.naver.com/p/search/%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90/place/1087840575?c=15.00,0,0,0,dh&placePath=%2Fticket%3FbookingRedirectUrl%3Dhttps%3A%2F%2Fm.booking.naver.com%2Fbooking%2F5%2Fbizes%2F680532%3Ftheme%3Dplace%26service-target%3Dmap-pc%26entry%3Dpll%26lang%3Dko%26entry%3Dpll%26fromPanelNum%3D2%26timestamp%3D202608101424%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90"
            target="_blank"
            class="btn btn-reserve">예약하기</a>
-
         <a href="tel:031-278-0070"
            class="btn btn-call">문의하기</a>
     </div>
@@ -383,15 +476,12 @@
     <!-- 오산점 -->
     <div class="branch-buttons">
         <h3>원타임짐 오산점</h3>
-
         <a href="오산점_예약링크"
            target="_blank"
            class="btn btn-reserve">예약하기</a>
-
         <a href="tel:0507-1322-4129"
            class="btn btn-call">문의하기</a>
     </div>
-
 </div>
 
 </body>
