@@ -78,6 +78,49 @@
             text-align: right;
         }
 
+        /* 탑동점 집중 홍보 배너/카드 스타일 */
+        .tapdong-hero {
+            background: linear-gradient(135deg, #1c1c1c 0%, #2b1315 100%);
+            border: 1px solid #e63946;
+            border-radius: 20px;
+            max-width: 950px;
+            margin: 60px auto;
+            padding: 40px;
+            text-align: left;
+            box-shadow: 0 8px 30px rgba(230, 57, 70, 0.15);
+        }
+        .tapdong-hero h2 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #ffffff;
+        }
+        .tapdong-hero .highlight {
+            color: #e63946;
+        }
+        .tapdong-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .tapdong-feature-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+        .tapdong-feature-box h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin: 0 0 8px 0;
+        }
+        .tapdong-feature-box p {
+            color: #bbbbbb;
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
         /* 트레이너 섹션 스타일 */
         .trainer-container {
             display: flex;
@@ -214,6 +257,34 @@
         </div>
     </div>
 
+    <!-- [추가됨] 원타임짐 탑동점 집중 홍보 섹션 -->
+    <div class="tapdong-hero">
+        <span class="badge">PREMIUM 1ST BRANCH</span>
+        <h2><span class="highlight">원타임짐 탑동점</span>만의 특별한 프리미엄 공간</h2>
+        <div class="subtitle" style="text-align: left; margin-bottom: 20px;">
+            운동이 처음이신 분들도 편안하게 스며들 수 있는 곳, 지루하지 않게 건강한 습관을 만들어드립니다.
+        </div>
+        
+        <div class="tapdong-grid">
+            <div class="tapdong-feature-box">
+                <h4>🏋️‍♂️ 150평 최대 규모 & 완벽한 구비</h4>
+                <p>넓고 쾌적한 공간에 엄선된 프리미엄 기구, 프리웨이트존, 그리고 여유로운 유산소존 완비!</p>
+            </div>
+            <div class="tapdong-feature-box">
+                <h4>🏙 탁 트인 통창뷰</h4>
+                <p>답답함 없이 시원하게 트인 통창뷰를 바라보며 기분 좋게 유산소와 웨이트를 즐기세요.</p>
+            </div>
+            <div class="tapdong-feature-box">
+                <h4>⏰ 365일 24시간 연중무휴</h4>
+                <p>안면인식 출입 시스템으로 언제든지 내가 원할 때 방문하여 운동 흐름이 끊기지 않습니다.</p>
+            </div>
+            <div class="tapdong-feature-box">
+                <h4>🤝 초보자 맞춤 소통 케어</h4>
+                <p>운동이 처음이셔도 걱정 마세요. 친절한 소통과 눈높이 지도러 편안하게 센터에 적응하고 운동 습관을 길러드립니다.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- 트레이너 소개 영역 (4명) -->
     <h2>전문성과 진심을 갖춘 트레이너</h2>
     <div class="subtitle">
@@ -224,7 +295,7 @@
     <div class="trainer-container">
         <!-- 1번 트레이너 -->
         <div class="trainer-card">
-            <img src=""C:\Users\dlwjd\OneDrive\바탕 화면\새 폴더\1tym11.jpg"" alt="박현진 대표" class="trainer-img">
+            <img src="1tym11.jpg" alt="박현진 대표" class="trainer-img">
             <div class="trainer-info">
                 <div class="trainer-name">박현진 대표</div>
                 <div class="trainer-tags">다이어트 · 체형교정</div>
@@ -234,7 +305,7 @@
 
         <!-- 2번 트레이너 -->
         <div class="trainer-card">
-            <img src=""C:\Users\dlwjd\OneDrive\바탕 화면\새 폴더\22.jpg"" alt="이재민 팀장" class="trainer-img">
+            <img src="22.jpg" alt="이재민 팀장" class="trainer-img">
             <div class="trainer-info">
                 <div class="trainer-name">이재민 팀장</div>
                 <div class="trainer-tags">체형교정 · 통증개선</div>
@@ -244,7 +315,7 @@
 
         <!-- 3번 트레이너 -->
         <div class="trainer-card">
-            <img src=""C:\Users\dlwjd\OneDrive\바탕 화면\새 폴더\33.jpg"" alt="이슬 트레이너" class="trainer-img">
+            <img src="33.jpg" alt="이슬 트레이너" class="trainer-img">
             <div class="trainer-info">
                 <div class="trainer-name">이슬 트레이너</div>
                 <div class="trainer-tags">다이어트 · 체형교정</div>
@@ -252,9 +323,9 @@
             </div>
         </div>
 
-        <!-- 4번 트레이너 (추가됨) -->
+        <!-- 4번 트레이너 -->
         <div class="trainer-card">
-            <img src=""C:\Users\dlwjd\OneDrive\바탕 화면\새 폴더\44.jpg"" alt="이승민 트레이너" class="trainer-img">
+            <img src="44.jpg" alt="이승민 트레이너" class="trainer-img">
             <div class="trainer-info">
                 <div class="trainer-name">이승민 트레이너</div>
                 <div class="trainer-tags">체형교정 · 근력강화</div>
@@ -263,7 +334,7 @@
         </div>
     </div>
 
-    <!-- 오시는 길 위치 정보 영역 (추가됨) -->
+    <!-- 오시는 길 위치 정보 영역 -->
     <h2>오시는 길</h2>
     <div class="subtitle">원타임짐 각 지점의 위치와 안내 사항입니다.</div>
 
@@ -283,7 +354,7 @@
             <h3>📍 원타임짐 오산점</h3>
             <p class="location-info">
                 <strong>주소:</strong> 오산시 (N마트 맞은편 건물)<br>
-                <strong>문의전화:</strong>0507-1322-4129<br>
+                <strong>문의전화:</strong> 0507-1322-4129<br>
                 <strong>주차안내:</strong> 지상 및 지하 주차장 완비
             </p>
         </div>
