@@ -367,7 +367,6 @@
             position: relative;
         }
 
-        /* 기본 흑백 + 호버 시 원본 컬러 & 확대 */
         .facility-img-box img {
             width: 100%;
             height: 300px;
@@ -495,11 +494,11 @@
         }
 
         /* =========================
-           트레이너 섹션 (4명 1열 나열 수정)
+           트레이너 섹션 (4명 1열 나열)
         ========================= */
         .trainer-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* PC 기준 한 줄에 4명 균등 배치 */
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             width: 100%;
         }
@@ -564,8 +563,12 @@
         }
 
         /* =========================
-           실제 회원 후기 (Social Proof)
+           실제 회원 후기 (Social Proof - 10건)
         ========================= */
+        .swiper-review {
+            padding-bottom: 55px !important;
+        }
+
         .review-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -573,6 +576,10 @@
             padding: 28px;
             text-align: left;
             position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .review-stars {
@@ -587,6 +594,7 @@
             line-height: 1.7;
             margin-bottom: 20px;
             font-style: italic;
+            flex-grow: 1;
         }
 
         .review-author {
@@ -596,15 +604,18 @@
         }
 
         .author-avatar {
-            width: 42px;
-            height: 42px;
-            background: #2a2d35;
+            width: 44px;
+            height: 44px;
+            background: rgba(230, 57, 70, 0.15);
+            border: 1px solid rgba(230, 57, 70, 0.4);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            font-weight: bold;
+            font-weight: 800;
+            font-size: 12px;
+            flex-shrink: 0;
         }
 
         .author-info h5 {
@@ -620,7 +631,7 @@
         }
 
         /* =========================
-           FAQ 섹션 (수정된 내용 반영)
+           FAQ 섹션
         ========================= */
         .faq-accordion {
             max-width: 800px;
@@ -787,7 +798,7 @@
         ========================= */
         @media (max-width: 992px) {
             .trainer-container {
-                grid-template-columns: repeat(2, 1fr); /* 태블릿 등 중형 화면에서는 2명씩 2줄 */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -845,7 +856,7 @@
             }
 
             .trainer-container {
-                grid-template-columns: 1fr; /* 모바일에서는 1명씩 세로 정렬 */
+                grid-template-columns: 1fr;
             }
 
             .location-card {
@@ -863,7 +874,7 @@
 <body>
 
     <!-- =========================
-         상단 이벤트 배너 (수정)
+         상단 이벤트 배너
     ========================= -->
     <div class="top-event-banner">
         <strong>WELCOME</strong> 초보자도 부담 없이 시작하는 원타임짐에 오신 것을 환영합니다!
@@ -877,7 +888,7 @@
     </a>
 
     <!-- =========================
-         첫 화면 / 지점 선택
+         첫 화면 / 영웅 섹션
     ========================= -->
     <section class="hero-section">
 
@@ -951,7 +962,7 @@
     </section>
 
     <!-- =========================
-         헬스장 장점 소개 (마우스 올리면 흑백->컬러)
+         시설 강점 섹션
     ========================= -->
     <section>
 
@@ -1067,7 +1078,7 @@
     </section>
 
     <!-- =========================
-         트레이너 소개 (4명 1열 배치 수정)
+         트레이너 소개 (4명 1열 배치)
     ========================= -->
     <section>
         <div class="section-header" data-aos="fade-up">
@@ -1129,73 +1140,195 @@
     </section>
 
     <!-- =========================
-         회원 리얼 후기
+         실제 회원 후기 (신규 10건 전체 교체)
     ========================= -->
     <section>
         <div class="section-header" data-aos="fade-up">
             <span class="sub-tag">MEMBER REVIEWS</span>
             <h2 class="section-title">원타임짐 회원님들의 솔직 후기</h2>
-            <p class="section-subtitle">실제 원타임짐을 경험하신 회원님들의 변화와 이야기입니다.</p>
+            <p class="section-subtitle">실제 원타임짐을 경험하신 회원님들의 생생한 리뷰입니다.</p>
         </div>
 
         <div class="swiper swiper-review" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
 
+                <!-- 후기 1 (탑동점) -->
                 <div class="swiper-slide">
                     <div class="review-card">
                         <div class="review-stars">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="review-text">"헬스장이 처음이라 기구 쓸 줄 몰라서 걱정했는데, 트레이너분들이 먼저 친절하게 기구 사용법 알려주셔서 너무 감동했어요. 센터도 깨끗하고 분위기가 정말 편합니다!"</p>
+                        <p class="review-text">"탑동 근처 헬스장 몇군데 다녀봤는데 여기가 제일 넓고 기구가 다양해서 좋아요!! 새벽에도 혼자 운동할 수 있고 주말에 나와도 사람이 붐비지 않아서 좋았습니다! 추천해요"</p>
                         <div class="review-author">
-                            <div class="author-avatar">김</div>
+                            <div class="author-avatar">탑동</div>
                             <div class="author-info">
-                                <h5>김OO 회원님</h5>
-                                <span>탑동점 이용 / 운동 3개월 차</span>
+                                <h5>탑동점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- 후기 2 (탑동점) -->
                 <div class="swiper-slide">
                     <div class="review-card">
                         <div class="review-stars">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="review-text">"통창뷰 보면서 러닝머신 뛰면 스트레스가 싹 풀려요. 기구도 최고급이라 확실히 자극이 잘 들어오는 게 느껴집니다. 퇴근 후 제 힐링 장소예요!"</p>
+                        <p class="review-text">"헬스가 처음이라 걱정했는데, PT쌤께서 부상 없이 혼자서도 운동할 수 있게 친절히 알려주셔서 20회 수강 후 20회 더 추가 재등록했습니다!"</p>
                         <div class="review-author">
-                            <div class="author-avatar">이</div>
+                            <div class="author-avatar">탑동</div>
                             <div class="author-info">
-                                <h5>이OO 회원님</h5>
-                                <span>탑동점 이용 / 다이어트 성공</span>
+                                <h5>탑동점 회원님</h5>
+                                <span>PT 수강 및 재등록 회원</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- 후기 3 (탑동점) -->
                 <div class="swiper-slide">
                     <div class="review-card">
                         <div class="review-stars">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="review-text">"24시간 이용 가능해서 야근하고 늦은 시간에 가도 눈치 안 보고 운동할 수 있어서 참 좋습니다. 주차도 너무 편해요."</p>
+                        <p class="review-text">"헬스장이 처음이라 기구 쓸 줄 몰라서 걱정했는데, 트레이너 분들이 먼저 친절하게 기구 사용법 알려주셔서 너무 감동했어요. 센터도 깨끗하고 분위기가 정말 편안합니다!"</p>
                         <div class="review-author">
-                            <div class="author-avatar">박</div>
+                            <div class="author-avatar">탑동</div>
                             <div class="author-info">
-                                <h5>박OO 회원님</h5>
-                                <span>오산점 이용 / 직장인</span>
+                                <h5>탑동점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 후기 4 (오산점) -->
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"24시간 이용 가능해서 야근하고 늦은 시간에 가도 눈치 안 보고 운동할 수 있어서 참 좋습니다. 헬스장도 쾌적하고 넓어서 추천할게요"</p>
+                        <div class="review-author">
+                            <div class="author-avatar" style="color:#38bdf8; border-color:rgba(56,189,248,0.4); background:rgba(56,189,248,0.15);">오산</div>
+                            <div class="author-info">
+                                <h5>오산점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 후기 5 (오산점) -->
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"접근성이 좋아 자주 오게 되는데, 기구 퀄리티가 훌륭해서 원하는 부위에 자극이 팍팍 들어옵니다."</p>
+                        <div class="review-author">
+                            <div class="author-avatar" style="color:#38bdf8; border-color:rgba(56,189,248,0.4); background:rgba(56,189,248,0.15);">오산</div>
+                            <div class="author-info">
+                                <h5>오산점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 후기 6 (탑동점) -->
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"혼자 할 땐 어떻게 하는 건지 잘 모르겠었는데 꼭 피티를 받지 않아도 가끔 오셔서 그냥 알려주시는데 정확한 위치에 근육통이 왔습니다. 쓱 오셔서 자세 잡아주시는 친절함에 감동했어요."</p>
+                        <div class="review-author">
+                            <div class="author-avatar">탑동</div>
+                            <div class="author-info">
+                                <h5>탑동점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 후기 7 (오산점) -->
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"365일 24시간 언제든 올 수 있어서 퇴근 늦은 날도 부담이 없어요. 매일 샤워실이랑 센터 전체를 쾌적하게 관리해주시는 게 느껴집니다."</p>
+                        <div class="review-author">
+                            <div class="author-avatar" style="color:#38bdf8; border-color:rgba(56,189,248,0.4); background:rgba(56,189,248,0.15);">오산</div>
+                            <div class="author-info">
+                                <h5>오산점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 후기 8 (탑동점) -->
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"헬스장 특유의 뻘쭘함 때문에 망설였는데, 분위기가 밝고 쌤들이 친절하게 인사해주셔서 여자 혼자서도 매일 편하게 운동하고 있어요!"</p>
+                        <div class="review-author">
+                            <div class="author-avatar">탑동</div>
+                            <div class="author-info">
+                                <h5>탑동점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 후기 9 (탑동점) -->
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"혼자 운동하면 내가 제대로 하고 있나 불안했는데, 자세를 정석대로 세심하게 잡아주셔서 이제는 혼자서도 자극 제대로 느끼며 운동합니다!"</p>
+                        <div class="review-author">
+                            <div class="author-avatar">탑동</div>
+                            <div class="author-info">
+                                <h5>탑동점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 후기 10 (탑동점) -->
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"주변 헬스장 여러 곳 상담받고 결정했는데 시설, 기구, 친절도 모두 최고입니다. 탑동에서 헬스장 찾으신다면 무조건 추천이에요."</p>
+                        <div class="review-author">
+                            <div class="author-avatar">탑동</div>
+                            <div class="author-info">
+                                <h5>탑동점 회원님</h5>
+                                <span>실제 방문자 리뷰</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="swiper-pagination" style="bottom: 0;"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
     <!-- =========================
-         FAQ 섹션 (요청 문구로 수정 완료)
+         FAQ 섹션 (수정된 5개 질문)
     ========================= -->
     <section>
         <div class="section-header" data-aos="fade-up">
@@ -1212,7 +1345,7 @@
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    원타임짐 회원님의 대부분이 운동 초보자로 시작하셨습니다. 등록 시 기본 인바디 측정과 기구 사용법 OT를 친절하게 안내해 드려 누구나 부담 없이 적응하실 수 있습니다. 또한 초보자분들이 헬스장에 쉽게 적응하실 수 있도록 '온보딩 PT'도 함께 진행하고 있습니다.
+                    네, 당연합니다! 원타임짐 회원님의 대부분이 운동 초보자로 시작하셨습니다. 등록 시 기본 인바디 측정과 기구 사용법 OT를 친절하게 안내해 드려 누구나 부담 없이 적응하실 수 있습니다. 또한 초보자분들이 헬스장에 쉽게 적응하실 수 있도록 '온보딩 PT'도 함께 진행하고 있습니다.
                 </div>
             </div>
 
@@ -1222,7 +1355,17 @@
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    원타임짐은 365일 24시간 연중무휴로 운영됩니다! 출근 전 새벽 시간이나 늦은 밤 시간까지, 회원님이 원하는 시간에 언제든 편하게 방문하셔서 운동하실 수 있습니다.
+                    A. 원타임짐은 365일 24시간 연중무휴로 운영됩니다! 출근 전 새벽 시간이나 늦은 밤 시간까지, 회원님이 원하는 시간에 언제든 편하게 방문하셔서 운동하실 수 있습니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Q. 운동복, 수건, 개인 락커 이용이 가능한가요?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    A. 네, 가능합니다! 수건은 회원분들을 위해 무료로 제공해 드리고 있으며, 운동복과 개인 락커 역시 대여하여 이용하실 수 있습니다.
                 </div>
             </div>
 
@@ -1232,7 +1375,7 @@
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    탈의실 내부에는 자유롭게 사용 가능한 공용 사물함이 마련되어 있으며, 매일 청결하게 관리되는 쾌적한 샤워실을 이용하실 수 있습니다.
+                    A. 탈의실 내부에는 자유롭게 사용 가능한 공용 사물함이 마련되어 있으며, 매일 청결하게 관리되는 쾌적한 샤워실을 이용하실 수 있습니다.
                 </div>
             </div>
 
@@ -1242,7 +1385,7 @@
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    네, 원타임짐 탑동점은 건물 내 넓은 무료 주차 공간이 완비되어 있어 차량 방문이 매우 편리합니다.
+                    A. 네, 원타임짐 탑동점은 건물 내 넓은 무료 주차 공간이 완비되어 있어 차량 방문이 매우 편리합니다.
                 </div>
             </div>
 
@@ -1346,13 +1489,13 @@
             }
         });
 
-        // 3. 회원 후기 Swiper 초기화
+        // 3. 회원 후기 Swiper 초기화 (10개 후기 지원)
         const swiperReview = new Swiper('.swiper-review', {
             slidesPerView: 1,
             spaceBetween: 20,
             loop: true,
             autoplay: {
-                delay: 4000,
+                delay: 4500,
                 disableOnInteraction: false,
             },
             pagination: {
@@ -1360,7 +1503,8 @@
                 clickable: true,
             },
             breakpoints: {
-                768: { slidesPerView: 2 }
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
             }
         });
 
