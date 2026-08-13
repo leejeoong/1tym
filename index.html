@@ -780,113 +780,141 @@
            원타임짐 조직도 (Organization Chart)
         ========================= */
         .org-section-wrapper {
-            background: rgba(255, 255, 255, 0.01);
+            background: linear-gradient(180deg, rgba(12, 13, 15, 0.8) 0%, rgba(22, 24, 29, 0.5) 50%, rgba(12, 13, 15, 0.8) 100%);
             border-top: 1px solid var(--card-border);
             border-bottom: 1px solid var(--card-border);
             padding: 90px 20px;
             margin-top: 20px;
         }
 
-        .org-container {
+        .org-timeline {
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 580px;
+            max-width: 680px;
             margin: 0 auto;
             position: relative;
         }
 
-        .org-card {
+        .org-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 18px;
-            padding: 20px 28px;
-            width: 100%;
-            text-align: center;
-            position: relative;
+            padding: 22px 28px;
             transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .org-card:hover {
-            transform: translateY(-4px);
+        .org-item:hover {
+            transform: translateY(-5px);
             border-color: var(--primary);
-            box-shadow: 0 12px 30px rgba(230, 57, 70, 0.25);
+            box-shadow: 0 15px 35px rgba(230, 57, 70, 0.2);
         }
 
-        .org-card.ceo {
-            background: linear-gradient(135deg, #221518 0%, #16181d 100%);
-            border-color: rgba(230, 57, 70, 0.5);
+        .org-item.ceo-item {
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.12) 0%, rgba(22, 24, 29, 0.95) 100%);
+            border: 1px solid rgba(230, 57, 70, 0.4);
+            box-shadow: 0 12px 35px rgba(230, 57, 70, 0.25);
         }
 
-        .org-badge {
-            display: inline-block;
+        .org-item.ceo-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 18px 45px rgba(230, 57, 70, 0.35);
+        }
+
+        .org-rank-num {
             font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--primary);
-            background: rgba(230, 57, 70, 0.12);
-            padding: 5px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(230, 57, 70, 0.3);
-            min-width: 110px;
-            text-align: center;
-        }
-
-        .org-card.ceo .org-badge {
-            background: var(--primary);
-            color: #ffffff;
-            box-shadow: 0 0 12px var(--primary-glow);
-        }
-
-        .org-info {
-            text-align: right;
-        }
-
-        .org-role {
             font-size: 20px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 2px;
-            letter-spacing: -0.5px;
-        }
-
-        .org-desc {
-            font-size: 12.5px;
-            color: var(--text-sub);
-            margin: 0;
-        }
-
-        .org-line {
+            font-weight: 900;
+            color: var(--primary);
+            background: rgba(230, 57, 70, 0.1);
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 38px;
-            position: relative;
-            width: 100%;
+            border: 1px solid rgba(230, 57, 70, 0.25);
+            flex-shrink: 0;
         }
 
-        .org-line::before {
+        .org-item.ceo-item .org-rank-num {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 0 15px var(--primary-glow);
+            border: none;
+        }
+
+        .org-card-content {
+            flex-grow: 1;
+        }
+
+        .org-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .org-role-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .org-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--text-sub);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .org-tag.gold {
+            color: #ffffff;
+            background: rgba(230, 57, 70, 0.2);
+            border-color: rgba(230, 57, 70, 0.4);
+        }
+
+        .org-desc {
+            font-size: 13.5px;
+            color: var(--text-sub);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .org-connector {
+            width: 2px;
+            height: 28px;
+            background: linear-gradient(180deg, var(--primary) 0%, rgba(230, 57, 70, 0.15) 100%);
+            position: relative;
+            margin: 4px 0;
+        }
+
+        .org-connector::after {
             content: '';
             position: absolute;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary) 0%, rgba(230, 57, 70, 0.15) 100%);
-            z-index: 1;
-        }
-
-        .org-line i {
-            position: relative;
-            z-index: 2;
-            color: var(--primary);
-            background: var(--bg-color);
-            font-size: 12px;
-            padding: 4px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
             border-radius: 50%;
+            box-shadow: 0 0 8px var(--primary);
         }
 
         /* =========================
@@ -981,18 +1009,29 @@
                 font-size: 26px;
             }
 
-            .org-card {
-                padding: 16px 20px;
+            .org-item {
+                padding: 18px 20px;
+                gap: 14px;
             }
 
-            .org-role {
+            .org-rank-num {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                border-radius: 10px;
+            }
+
+            .org-role-title {
                 font-size: 17px;
             }
 
-            .org-badge {
-                min-width: 90px;
+            .org-tag {
                 font-size: 10px;
-                padding: 4px 10px;
+                padding: 3px 8px;
+            }
+
+            .org-desc {
+                font-size: 12.5px;
             }
         }
     </style>
@@ -1581,62 +1620,77 @@
                 <span class="sub-tag">ORGANIZATION CHART</span>
                 <h2 class="section-title">원타임짐 체계적 조직도</h2>
                 <p class="section-subtitle">
-                    전문적인 리더십과 체계적인 가이드로 회원님께 최상의 서비스를 제공합니다.
+                    전문적인 리더십과 체계적인 가이드로 회원님께 최상의 피트니스 경험을 제공합니다.
                 </p>
             </div>
 
-            <div class="org-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="org-timeline" data-aos="fade-up" data-aos-delay="100">
                 
-                <!-- 1단계: 씨이오 -->
-                <div class="org-card ceo">
-                    <span class="org-badge">CEO</span>
-                    <div class="org-info">
-                        <div class="org-role">씨이오</div>
-                        <p class="org-desc">총괄 운영 & 브랜딩 비전 선도</p>
+                <!-- 1단계: CEO -->
+                <div class="org-item ceo-item">
+                    <div class="org-rank-num">01</div>
+                    <div class="org-card-content">
+                        <div class="org-card-header">
+                            <div class="org-role-title">CEO</div>
+                            <span class="org-tag gold">CHIEF EXECUTIVE</span>
+                        </div>
+                        <p class="org-desc">원타임짐 브랜드 비전 수립 및 총괄 경영</p>
                     </div>
                 </div>
 
-                <div class="org-line"><i class="fa-solid fa-chevron-down"></i></div>
+                <div class="org-connector"></div>
 
                 <!-- 2단계: 팀장 -->
-                <div class="org-card">
-                    <span class="org-badge">HEAD MANAGER</span>
-                    <div class="org-info">
-                        <div class="org-role">팀장</div>
-                        <p class="org-desc">지점 관리 및 운영 전략 총괄</p>
+                <div class="org-item">
+                    <div class="org-rank-num">02</div>
+                    <div class="org-card-content">
+                        <div class="org-card-header">
+                            <div class="org-role-title">팀장</div>
+                            <span class="org-tag">GENERAL MANAGER</span>
+                        </div>
+                        <p class="org-desc">지점 운영 총괄 및 매장 운영 전략 수립</p>
                     </div>
                 </div>
 
-                <div class="org-line"><i class="fa-solid fa-chevron-down"></i></div>
+                <div class="org-connector"></div>
 
                 <!-- 3단계: 팀리더 -->
-                <div class="org-card">
-                    <span class="org-badge">TEAM LEADER</span>
-                    <div class="org-info">
-                        <div class="org-role">팀리더</div>
-                        <p class="org-desc">트레이닝 품질 및 가이드 관리</p>
+                <div class="org-item">
+                    <div class="org-rank-num">03</div>
+                    <div class="org-card-content">
+                        <div class="org-card-header">
+                            <div class="org-role-title">팀리더</div>
+                            <span class="org-tag">TEAM LEADER</span>
+                        </div>
+                        <p class="org-desc">트레이닝 프로그램 품질 관리 및 코칭 지도</p>
                     </div>
                 </div>
 
-                <div class="org-line"><i class="fa-solid fa-chevron-down"></i></div>
+                <div class="org-connector"></div>
 
                 <!-- 4단계: 매니저 -->
-                <div class="org-card">
-                    <span class="org-badge">MANAGER</span>
-                    <div class="org-info">
-                        <div class="org-role">매니저</div>
-                        <p class="org-desc">센터 환경 관리 & 회원 응대 서비스</p>
+                <div class="org-item">
+                    <div class="org-rank-num">04</div>
+                    <div class="org-card-content">
+                        <div class="org-card-header">
+                            <div class="org-role-title">매니저</div>
+                            <span class="org-tag">OPERATIONS MANAGER</span>
+                        </div>
+                        <p class="org-desc">센터 환경·시설 관리 및 회원 서비스 케어</p>
                     </div>
                 </div>
 
-                <div class="org-line"><i class="fa-solid fa-chevron-down"></i></div>
+                <div class="org-connector"></div>
 
                 <!-- 5단계: 코치 -->
-                <div class="org-card">
-                    <span class="org-badge">COACH</span>
-                    <div class="org-info">
-                        <div class="org-role">코치</div>
-                        <p class="org-desc">1:1 맞춤 피티 & 온보딩 밀착 지도</p>
+                <div class="org-item">
+                    <div class="org-rank-num">05</div>
+                    <div class="org-card-content">
+                        <div class="org-card-header">
+                            <div class="org-role-title">코치</div>
+                            <span class="org-tag">FITNESS COACH</span>
+                        </div>
+                        <p class="org-desc">1:1 맞춤 피티 & 온보딩 밀착 운동 지도</p>
                     </div>
                 </div>
 
