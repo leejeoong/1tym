@@ -159,7 +159,7 @@
         }
 
         /* =========================
-           첫 화면 / 영웅 섹션
+           첫 화면 / 영웅 섹션 (모바일 이미지 높이 최적화)
         ========================= */
         .hero-section {
             padding: 90px 20px 80px;
@@ -203,6 +203,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
         }
 
         .hero-btn-next,
@@ -287,7 +288,6 @@
             overflow: hidden;
         }
 
-        /* 마우스 추적 글로우 광원 레이어 */
         .card::before {
             content: '';
             position: absolute;
@@ -446,7 +446,7 @@
         }
 
         /* =========================
-           시설 강점 섹션
+           시설 강점 섹션 (모바일 이미지 왜곡 방지 및 비율 고정)
         ========================= */
         .facility-row {
             display: flex;
@@ -495,12 +495,14 @@
             border: 1px solid var(--card-border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
+            width: 100%;
         }
 
         .facility-img-box img {
             width: 100%;
-            height: 300px;
+            height: 320px;
             object-fit: cover;
+            object-position: center;
             display: block;
             filter: grayscale(100%) brightness(0.85);
             transition: filter 0.5s ease, transform 0.5s ease;
@@ -512,7 +514,7 @@
         }
 
         /* =========================
-           랜선 투어 (시설 슬라이더)
+           랜선 투어 (시설 슬라이더 이미지 최적화)
         ========================= */
         .tour-section {
             background: rgba(255, 255, 255, 0.015);
@@ -539,8 +541,9 @@
 
         .swiper-slide-facility img {
             width: 100%;
-            height: 220px;
+            height: 250px;
             object-fit: cover;
+            object-position: center;
             display: block;
             filter: grayscale(100%) brightness(0.85);
             transition: filter 0.5s ease, transform 0.5s ease;
@@ -624,7 +627,7 @@
         }
 
         /* =========================
-           트레이너 소개
+           트레이너 소개 (모바일 인물 사진 잘림 방지 최적화)
         ========================= */
         .trainer-container {
             display: grid;
@@ -650,15 +653,17 @@
 
         .trainer-img-wrapper {
             position: relative;
-            height: 250px;
+            width: 100%;
+            height: 300px; /* 모바일/PC 모두 인물 사진이 안정적으로 보이도록 높이 상향 */
             overflow: hidden;
+            background-color: #1a1c23;
         }
 
         .trainer-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            background-color: #222;
+            object-position: top center; /* 인물 사진 특성상 상단(얼굴 중심)이 잘리지 않도록 정렬 */
             transition: transform 0.4s ease;
         }
 
@@ -808,7 +813,7 @@
         }
 
         /* =========================
-           오시는 길 & 세련된 예약 버튼 스타일
+           오시는 길 & 예약 버튼
         ========================= */
         .location-container {
             display: flex;
@@ -900,7 +905,7 @@
         }
 
         /* =========================
-           4. 고정형 하단 '퀵 예약/문의' 바 (모바일 추천)
+           고정형 하단 '퀵 예약/문의' 바
         ========================= */
         .floating-bottom-bar {
             position: fixed;
@@ -930,7 +935,7 @@
         ========================= */
         footer {
             border-top: 1px solid var(--card-border);
-            padding: 45px 20px 90px; /* 하단 바 공간 확보 위해 패딩 추가 */
+            padding: 45px 20px 90px;
             color: #666666;
             font-size: 13px;
             line-height: 1.8;
@@ -943,7 +948,7 @@
         }
 
         /* =========================
-           모바일 반응형
+           모바일 반응형 완벽 대응 레이아웃
         ========================= */
         @media (max-width: 992px) {
             .trainer-container {
@@ -967,14 +972,16 @@
 
             .hero-section {
                 padding: 40px 15px 60px;
+                min-height: 75vh;
             }
 
             h1 {
-                font-size: 34px;
+                font-size: 32px;
+                word-break: keep-all;
             }
 
             .hero-subtitle {
-                font-size: 15px;
+                font-size: 14.5px;
             }
 
             .card {
@@ -992,8 +999,9 @@
                 margin-bottom: 60px;
             }
 
+            /* 모바일에서 시설 사진 높이를 컴팩트하게 조정하여 스크롤 피로도 감소 */
             .facility-img-box img {
-                height: 220px;
+                height: 230px;
             }
 
             .tapdong-hero {
@@ -1008,6 +1016,11 @@
                 grid-template-columns: 1fr;
             }
 
+            /* 모바일에서 트레이너 카드 사진 비율 최적화 */
+            .trainer-img-wrapper {
+                height: 320px;
+            }
+
             .location-card {
                 width: 100%;
                 padding: 24px;
@@ -1015,6 +1028,10 @@
 
             .section-title {
                 font-size: 26px;
+            }
+
+            section {
+                padding: 60px 16px;
             }
         }
     </style>
@@ -1092,7 +1109,7 @@
     </section>
 
     <!-- =========================
-         브랜드 신뢰 영역 (3. 숫자 카운트업 적용)
+         브랜드 신뢰 영역
     ========================= -->
     <section>
         <div class="section-header" data-aos="fade-up">
@@ -1404,7 +1421,7 @@
     </section>
 
     <!-- =========================
-         오시는 길 & 세련된 예약 버튼
+         오시는 길 & 예약 버튼
     ========================= -->
     <section id="location-sec">
         <div class="section-header" data-aos="fade-up">
@@ -1455,7 +1472,7 @@
     </section>
 
     <!-- =========================
-         4. 고정형 하단 '퀵 예약/문의' 바 (모바일 하단 고정)
+         고정형 하단 '퀵 예약/문의' 바
     ========================= -->
     <div class="floating-bottom-bar">
         <a href="https://map.naver.com/p/search/%EC%9B%90%ED%83%80%EC%9E%84%EC%A7%90" target="_blank" class="btn btn-reserve">
@@ -1478,13 +1495,13 @@
     </footer>
 
     <!-- =========================
-         스크립트 (로딩, 마우스 글로우, 카운트업, AOS, Swiper)
+         스크립트
     ========================= -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <script>
-        // 1. 페이지 로딩 후 뼈대 로딩 화면 부드럽게 페이드아웃
+        // 로딩 화면 페이드아웃
         window.addEventListener('load', () => {
             const loader = document.getElementById('page-loader');
             setTimeout(() => {
@@ -1492,14 +1509,14 @@
             }, 400);
         });
 
-        // 2. AOS 애니메이션 초기화
+        // AOS 초기화
         AOS.init({
             duration: 800,
             once: true,
             offset: 80
         });
 
-        // 3. 마우스 무브먼트 글래스모피즘 & 글로우 효과 좌표 추적
+        // 마우스 무브먼트 글로우 좌표 추적 (데스크톱 전용)
         document.querySelectorAll('.glow-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -1510,7 +1527,7 @@
             });
         });
 
-        // 4. 숫자 카운트업 애니메이션
+        // 숫자 카운트업 애니메이션
         const counters = document.querySelectorAll('.counter');
         let animated = false;
 
@@ -1518,7 +1535,7 @@
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 let count = 0;
-                const speed = target / 30; // 숫자가 올라가는 속도 조절
+                const speed = target / 30;
 
                 const updateCount = () => {
                     count += speed;
@@ -1533,7 +1550,6 @@
             });
         }
 
-        // 스크롤 시 카운트업 영역 도달하면 실행
         window.addEventListener('scroll', () => {
             const section = document.querySelector('.tapdong-hero');
             if (!section) return;
@@ -1546,7 +1562,7 @@
             }
         });
 
-        // 5. 히어로 슬라이더 초기화
+        // Swiper 초기화들
         const heroSwiper = new Swiper('.hero-swiper', {
             slidesPerView: 1,
             loop: true,
@@ -1561,7 +1577,6 @@
             },
         });
 
-        // 6. 센터 둘러보기 Swiper 초기화
         const swiperFacility = new Swiper('.swiper-facility', {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -1580,7 +1595,6 @@
             }
         });
 
-        // 7. 회원 후기 Swiper 초기화
         const swiperReview = new Swiper('.swiper-review', {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -1598,7 +1612,7 @@
             }
         });
 
-        // 8. FAQ 아코디언 토글
+        // FAQ 아코디언 토글
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
