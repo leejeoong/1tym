@@ -66,7 +66,7 @@
         }
 
         /* =========================
-           1. 뼈대 로딩 효과 (Skeleton UI / Loader)
+           1. 프리미엄 세련된 로딩 화면 (Page Loader)
         ========================= */
         #page-loader {
             position: fixed;
@@ -74,13 +74,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0c0d0f;
+            background: #08090b;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s ease;
         }
 
         #page-loader.loaded {
@@ -88,30 +87,54 @@
             visibility: hidden;
         }
 
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
         .loader-logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 900;
             color: #fff;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
+            animation: loaderPulse 2s ease-in-out infinite;
         }
 
         .loader-logo span {
             color: var(--primary);
+            text-shadow: 0 0 15px var(--primary-glow);
         }
 
-        .loader-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+        .loader-bar-container {
+            width: 160px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .loader-bar {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            position: absolute;
+            left: -100%;
+            animation: loaderSlide 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes loaderPulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.03); opacity: 1; text-shadow: 0 0 20px rgba(230, 57, 70, 0.4); }
+        }
+
+        @keyframes loaderSlide {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         /* =========================
@@ -159,7 +182,7 @@
         }
 
         /* =========================
-           첫 화면 / 영웅 섹션 (모바일 이미지 높이 최적화)
+           첫 화면 / 영웅 섹션
         ========================= */
         .hero-section {
             padding: 90px 20px 80px;
@@ -446,7 +469,7 @@
         }
 
         /* =========================
-           시설 강점 섹션 (모바일 이미지 왜곡 방지 및 비율 고정)
+           시설 강점 섹션 (모바일/웹 반응형 비율 고정 적용)
         ========================= */
         .facility-row {
             display: flex;
@@ -500,7 +523,7 @@
 
         .facility-img-box img {
             width: 100%;
-            height: 320px;
+            aspect-ratio: 16 / 10;
             object-fit: cover;
             object-position: center;
             display: block;
@@ -514,7 +537,7 @@
         }
 
         /* =========================
-           랜선 투어 (시설 슬라이더 이미지 최적화)
+           랜선 투어 (시설 슬라이더 이미지 비율 고정)
         ========================= */
         .tour-section {
             background: rgba(255, 255, 255, 0.015);
@@ -541,7 +564,7 @@
 
         .swiper-slide-facility img {
             width: 100%;
-            height: 250px;
+            aspect-ratio: 16 / 10;
             object-fit: cover;
             object-position: center;
             display: block;
@@ -627,7 +650,7 @@
         }
 
         /* =========================
-           트레이너 소개 (모바일 인물 사진 잘림 방지 최적화)
+           트레이너 소개 (인물 비율 고정 최적화)
         ========================= */
         .trainer-container {
             display: grid;
@@ -654,7 +677,7 @@
         .trainer-img-wrapper {
             position: relative;
             width: 100%;
-            height: 300px; /* 모바일/PC 모두 인물 사진이 안정적으로 보이도록 높이 상향 */
+            aspect-ratio: 3 / 4;
             overflow: hidden;
             background-color: #1a1c23;
         }
@@ -663,7 +686,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center; /* 인물 사진 특성상 상단(얼굴 중심)이 잘리지 않도록 정렬 */
+            object-position: top center;
             transition: transform 0.4s ease;
         }
 
@@ -999,11 +1022,6 @@
                 margin-bottom: 60px;
             }
 
-            /* 모바일에서 시설 사진 높이를 컴팩트하게 조정하여 스크롤 피로도 감소 */
-            .facility-img-box img {
-                height: 230px;
-            }
-
             .tapdong-hero {
                 padding: 30px 20px;
             }
@@ -1014,11 +1032,6 @@
 
             .trainer-container {
                 grid-template-columns: 1fr;
-            }
-
-            /* 모바일에서 트레이너 카드 사진 비율 최적화 */
-            .trainer-img-wrapper {
-                height: 320px;
             }
 
             .location-card {
@@ -1040,11 +1053,15 @@
 <body>
 
     <!-- =========================
-         1. 뼈대 로딩 화면 (Skeleton UI)
+         1. 세련된 로딩 화면
     ========================= -->
     <div id="page-loader">
-        <div class="loader-logo">ONE TIME <span>GYM</span></div>
-        <div class="loader-spinner"></div>
+        <div class="loader-content">
+            <div class="loader-logo">ONE TIME <span>GYM</span></div>
+            <div class="loader-bar-container">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
     </div>
 
     <!-- =========================
